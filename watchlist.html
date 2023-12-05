@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Watchlist</title>
+    <script src="https://unpkg.com/vue"></script>
+    <!--<script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>-->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="./src/js/script.js" defer></script>
+    <title>Netflix/watchlist</title>
+    <link rel="stylesheet" type="text/css" href="./src/css/watchlist.css">
+</head>
+
+<body>
+
+    <!--How to Use Vue in a project-->
+    <div id="app" id="home">
+
+
+        <!--Header-->
+        <header>
+            <div class="netflixLogo">
+                <img src="./src/images/logo/logo.png" class="logo">
+            </div>
+
+            <nav class="main-nav">
+                <a href="home.html">Home</a>
+                <a href="https://www.netflix.com/browse/genre/83">TV Shows</a>
+                <a href="https://www.netflix.com/browse/genre/34399">Movies</a>
+                <a href="https://www.netflix.com/latest">New & Popular</a>
+                <a href="https://www.netflix.com/browse/my-list">My List</a>
+                <a href="/watchlist.html">Watchlist</a>
+            </nav>
+            <nav class="sub-nav">
+                <a id="result"></a>
+                <a href="/login.html">Logout</a>
+            </nav>
+        </header>
+        <!--End Header-->
+
+        <!--Main Container-->
+
+
+        <h1>{{titel}}</h1>
+
+
+
+
+
+        <!--End Main Container-->
+        <!--footer-->
+        <footer>
+            <section class="link">
+                <div class="icon">
+                    <a href="https://www.facebook.com/netflix/"><img src="./src/images/icon/facebook.png"></a>
+                    <a href="https://www.instagram.com/Netflix/"><img src="./src/images/icon/instagram.png"></a>
+                    <a href="https://www.youtube.com/channel/UCNG0bMYut0wL3C9BS5ffQXw"><img
+                            src="./src/images/icon/youTube.png"></a>
+                </div>
+                <div class="sub-links">
+                    <ul>
+                        <li><a href="https://www.netflix.com/browse/audio-description">Audio Description</a>
+                        </li>
+                        <li><a href="https://help.netflix.com/en/">Help Center</a></li>
+                        <li><a href="https://www.netflix.com/za/redeem">Gift Cards</a></li>
+                        <li><a href="https://media.netflix.com/en/">Media Center</a></li>
+                        <li><a href="https://ir.netflix.net/ir-overview/profile/default.aspx">Investor
+                                Relations</a></li>
+                        <li><a href="https://jobs.netflix.com/">Jobs</a></li>
+                        <li><a href="https://help.netflix.com/legal/termsofuse">Terms of Use</a></li>
+                        <li><a href="https://help.netflix.com/legal/privacy">Privacy</a></li>
+                        <li><a href="https://help.netflix.com/legal/notices">Legal Notices</a></li>
+                        <li><a href="#">Cookie and Preferences</a></li>
+                        <li><a href="https://help.netflix.com/legal/corpinfo">Corporate Information</a></li>
+                        <li><a href="https://help.netflix.com/en/contactus">Contact Us</a></li>
+                    </ul>
+                </div>
+            </section>
+            <p>&copy 1997-2023 Netflix, Inc.</p>
+        </footer>
+        <!--End footer-->
+    </div>
+ 
+</body>
+
+</html>

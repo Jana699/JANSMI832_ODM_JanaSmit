@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <script src="https://unpkg.com/vue"></script>
+    <!--<script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>-->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="./src/js/script.js" defer></script>
+    <title>Netflix/home</title>
+    <link rel="stylesheet" type="text/css" href="./src/css/home.css">
+</head>
+
+<body>
+    <div id="app" id="home">
+        <!--Video background-->
+        <video autoplay muted loop id="myVideo">
+            <source src="./src/images/video/netflix.mp4" type="video/mp4">
+        </video>
+        <!--Header-->
+        <header>
+            <div class="netflixLogo">
+                <img src="./src/images/logo/logo.png" class="logo">
+            </div>
+            <nav class="main-nav">
+                <a href="home.html">Home</a>
+                <a href="https://www.netflix.com/browse/genre/83">TV Shows</a>
+                <a href="https://www.netflix.com/browse/genre/34399">Movies</a>
+                <a href="https://www.netflix.com/latest">New & Popular</a>
+                <a href="https://www.netflix.com/browse/my-list">My List</a>
+                <a type="submit" class="login-input" href="watchlist.html">Watchlist</a>
+            </nav>
+            <nav class="sub-nav">
+                <p id="result">
+                <p>jana@netflix.co.za
+                    <a href="login.html">Logout</a>
+                </p>
+                </p>
+            </nav>
+        </header>
+        <!--End Header-->
+
+        <!--Main Container-->
+        <div>
+
+            <br>
+            <!--sort genre-->
+            <div>Movies {{ selected }}
+                <select v-model="selected">
+                    <option :disabled="movie in movies">{{movies.genre}}</option>
+                    <option>Action</option>
+                    <option>Anime</option>
+                    <option>Classic</option>
+                    <option>Comadies</option>
+                    <option>Drama</option>
+                    <option>Made in Africa</option>
+                    <option>Musicals</option>
+                    <option>Romance</option>
+                </select>
+            </div>
+        </div>
+
+        <!--show movies-->
+        <h2>{{title1}}</h2>
+        <div class="box">
+
+            <div v-for="movie in movies" :key="movie.id">
+                <h4 class="nameB">{{movie.name}}</h4>
+                <img v-bind:src="movie.url" class="movieB">
+                <h6 class="releaseB">Release date:{{movie.availDate}}</h6>
+               <button>Preview</button>
+
+
+
+                <button v-if="state==='edit'"
+                    @click="changeState('default')">Cancel</button><!--view events @click @ symble is the same as typing v-on:click-->
+                <button v-else="state==='default'" @click="changeState('edit')">Add to Watchlist</button>
+                <div v-if="state==='edit'">
+
+                    <p id="output"></p>
+                    <input type="text" v-model="myModel"
+                        v-on:keyup.enter="saveItem"><!--input is a controller / v-model two-way binding between / event handeler @keyup is the enter-->
+                    <button @click="saveItem" :disabled="myModel.length===0">Save the
+                        Item</button><!--binding attributes : -->
+                    <ul>
+                        <li v-for="x in sortedItems" :class="{strikeout :x.done}" @click="toggleDone(x)">{{x.label}}
+                        </li><!--if you leave out label only the object will get printed out-->
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!--End Main Container-->
+        <!--footer-->
+        <footer>
+            <section class="link">
+                <div class="icon">
+                    <a href="https://www.facebook.com/netflix/"><img src="./src/images/icon/facebook.png"></a>
+                    <a href="https://www.instagram.com/Netflix/"><img src="./src/images/icon/instagram.png"></a>
+                    <a href="https://www.youtube.com/channel/UCNG0bMYut0wL3C9BS5ffQXw"><img
+                            src="./src/images/icon/youTube.png"></a>
+                </div>
+                <div class="sub-links">
+                    <ul>
+                        <li><a href="https://www.netflix.com/browse/audio-description">Audio Description</a>
+                        </li>
+                        <li><a href="https://help.netflix.com/en/">Help Center</a></li>
+                        <li><a href="https://www.netflix.com/za/redeem">Gift Cards</a></li>
+                        <li><a href="https://media.netflix.com/en/">Media Center</a></li>
+                        <li><a href="https://ir.netflix.net/ir-overview/profile/default.aspx">Investor
+                                Relations</a></li>
+                        <li><a href="https://jobs.netflix.com/">Jobs</a></li>
+                        <li><a href="https://help.netflix.com/legal/termsofuse">Terms of Use</a></li>
+                        <li><a href="https://help.netflix.com/legal/privacy">Privacy</a></li>
+                        <li><a href="https://help.netflix.com/legal/notices">Legal Notices</a></li>
+                        <li><a href="#">Cookie and Preferences</a></li>
+                        <li><a href="https://help.netflix.com/legal/corpinfo">Corporate Information</a></li>
+                        <li><a href="https://help.netflix.com/en/contactus">Contact Us</a></li>
+                    </ul>
+                </div>
+            </section>
+            <p>&copy 1997-2023 Netflix, Inc.</p>
+        </footer>
+        <!--End footer-->
+    </div>
+
+
+</body>
+
+</html>
